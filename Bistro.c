@@ -75,7 +75,7 @@ char	add(char *n1, char *n2, char *ans)
 			retenue = 0;
 		p1 = p1 - 1;
 		p2 = p2 - 1;
-		count--;
+		count = count - 1;
 	}
 }
 
