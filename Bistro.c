@@ -54,6 +54,7 @@ char	add(char *n1, char *n2, char *ans)
 	int i;
 	int p1;
 	int p2;
+	int pc;
 	int count;
 	int retenue;
 
@@ -61,21 +62,29 @@ char	add(char *n1, char *n2, char *ans)
 	retenue = 0;
 	p1 = (my_strlen(n1) - 1);
 	p2 = (my_strlen(n2) - 1);
-	count = p1 + 1;
+	pc = (my_strlen(ans) - 1);
+	count = p1 + 2;
+	// printf("%s\n", n1);
+	// printf("%s\n", n2);
 
 	while (count > 0)
 	{
-		ans[p1] = '0' + ((n1[p1] - '0') + (n2[p2] - '0')) + retenue;
-		if (ans[p1] > '9')
+		if (p1 >= 0 || p2 >= 0)
+			ans[pc] = '0' + ((n1[p1] - '0') + (n2[p2] - '0')) + retenue;
+		else
+			ans[pc] = '0' + retenue;
+		if (ans[pc] > '9')
 		{
-			ans[p1] = ans[p1] - 10;
+			ans[pc] = ans[pc] - 10;
 			retenue = 1;	
 		}
 		else
 			retenue = 0;
 		p1 = p1 - 1;
 		p2 = p2 - 1;
+		pc--;
 		count = count - 1;
+		// printf("%s\n", ans);
 	}
 }
 
